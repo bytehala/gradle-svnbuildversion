@@ -6,6 +6,9 @@
 plugins {
     id 'groovy'
     id 'java-gradle-plugin'
+
+    // Publishing publicly
+    id 'com.gradle.plugin-publish' version '0.9.10'
 }
 
 // * * * * * * * * * * * *
@@ -17,7 +20,7 @@ repositories {
 }
 
 dependencies {
-    compile("org.tmatesoft.svnkit:svnkit:1.9.3")
+    compile ("org.tmatesoft.svnkit:svnkit:1.9.3")
     compile     gradleApi()
     testCompile gradleTestKit()
     testCompile 'junit:junit:4+'
@@ -31,6 +34,8 @@ project.description     = 'Adds a :generateBuildversionProps task that auto-gene
 project.group           = 'com.github.bytehala'
 project.version         = '1.0'
 
+
+
 project.ext.name        = 'SvnBuildVersionPlugin'
 project.ext.pluginId    = 'com.github.bytehala.SvnBuildVersionPlugin'
 project.ext.scm         = 'scm:git@github.com:bytehala/gradle-svnbuildversion.git'
@@ -39,9 +44,34 @@ project.ext.url         = 'https://github.com/bytehala/gradle-svnbuildversion'
 // Configuration for: java-gradle-plugin
 gradlePlugin {
     plugins {
-        demoPlugin {
+        demoPlugin { // shouldn't say "demo". i've seen greetingsPlugin and simplePlugin
             id = project.pluginId
             implementationClass = 'com.github.bytehala.SvnBuildVersionPlugin'
+        }
+    }
+}
+
+// * * * * * * * * * * * *
+// Publishing
+// * * * * * * * * * * * *
+
+// Consult the accompanied blog post for information on publishing the plugin.
+// A link can be found in the README file.
+
+// Publishing to plugins.gradle.org
+// --------------------------------
+
+// Configuration for: com.gradle.plugin-publish
+pluginBundle {
+    website = project.url
+    vcsUrl = project.scm
+    tags = ['svn', 'spring', 'properties']
+
+    plugins {
+        demoPlugin {
+            displayName = 'SVN Buildversion'
+            description = project.description
+            id          = project.pluginId
         }
     }
 }
