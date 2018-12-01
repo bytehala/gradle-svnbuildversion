@@ -1,0 +1,47 @@
+// * * * * * * * * * * * *
+// Plugins
+// * * * * * * * * * * * *
+
+
+plugins {
+    id 'groovy'
+    id 'java-gradle-plugin'
+}
+
+// * * * * * * * * * * * *
+// Dependencies
+// * * * * * * * * * * * *
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile("org.tmatesoft.svnkit:svnkit:1.9.3")
+    compile     gradleApi()
+    testCompile gradleTestKit()
+    testCompile 'junit:junit:4+'
+}
+
+// * * * * * * * * * * * *
+// Project configuration
+// * * * * * * * * * * * *
+
+project.description     = 'Adds a :generateBuildversionProps task that auto-generates a buildversion.properties file'
+project.group           = 'com.github.bytehala'
+project.version         = '1.0'
+
+project.ext.name        = 'SvnBuildVersionPlugin'
+project.ext.pluginId    = 'com.github.bytehala.SvnBuildVersionPlugin'
+project.ext.scm         = 'scm:git@github.com:bytehala/gradle-svnbuildversion.git'
+project.ext.url         = 'https://github.com/bytehala/gradle-svnbuildversion'
+
+// Configuration for: java-gradle-plugin
+gradlePlugin {
+    plugins {
+        demoPlugin {
+            id = project.pluginId
+            implementationClass = 'com.github.bytehala.SvnBuildVersionPlugin'
+        }
+    }
+}
