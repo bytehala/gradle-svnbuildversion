@@ -2,12 +2,13 @@
 
 This gradle plugin adds a `:generateBuildversionProps` task to your gradle project.
 
-When `:generateBuildversionProps` task is run, the file `src/main/resources/config/buildversion.properties` is generated with the following contents:
+When `:generateBuildversionProps` task is run, the output file `src/main/resources/config/buildversion.properties` is generated with the following contents:
 ```properties
 # buildversion.properties
+# SAMPLE CONTENTS
 projectVersion.number=0.1 # Uses the value of svnbuildversion.projectVersion
 built.number=9 # Number of times this file was generated. Can be useful when doing CI auto-builds
-svnRevision.number=109 # The current svn revision number
+svnRevision.number=109 # The current svn revision number. 'NaN' if project is not svn-managed
 
 ```
 
@@ -27,6 +28,7 @@ plugins {
 }
 
 svnbuildversion.projectVersion = 1.0 // Your project's version
+//svnbuildversion.outputDir = 'src/main/resources/config/'
 ```
 
 2. Run `gradle generateBuildversionProps`
@@ -37,16 +39,19 @@ The plugin adds the following variable which you can use in your projects build.
 - svnbuildversion.projectVersion - to pass your project's version into the plugin
 - svnbuildversion.outputDir - where buildversion.properties will be generated
 
+---
+
+
 ## Build-your-own
 These steps guide you through building this plugin on your own and using the jar file in your project.
 
 1. `git clone https://github.com/bytehala/gradle-svnbuildversion.git`
 
-2. (optional) To make the unit test succeed, edit `SvnBuildVersionPluginTest.groovy` by pointing `svnbuildversion.projectRoot` to a root directory of an svn project
+2. (optional) To test what the output file will look like for your svn-managed project, edit `SvnBuildVersionPluginTest.groovy` by pointing `svnbuildversion.projectRoot` to your project's root directory
 
-3. Run `gradle clean build` (or `gradle clean build -x test` if you skipped Step 2). The output will be in `build/libs/gradle-svnbuildversion-X.X.jar`
+3. Run `gradle clean build`. The binaries will be in `build/libs/gradle-svnbuildversion-X.X.jar`
 
-4. Copy gradle-svnbuildversion-X.X.jar into your project (e.g. myProject/libs/)
+4. Copy `gradle-svnbuildversion-X.X.jar` into your project (e.g. myProject/libs/)
 
 5. Configure build.gradle in your project
 ```groovy
@@ -66,6 +71,7 @@ buildscript {
 
 
 svnbuildversion.projectVersion = 1.0 // Your project's version
+//svnbuildversion.outputDir = 'src/main/resources/config/'
 ```
 
 6. Run `gradle generateBuildversionProps`
