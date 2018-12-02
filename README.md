@@ -60,7 +60,7 @@ buildscript {
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.3.RELEASE")
         classpath("org.tmatesoft.svnkit:svnkit:1.9.3") // The jar file depends on this library
-        classpath("com.github.bytehala:gradle-svnbuildversion:1.1")
+        classpath("com.github.bytehala:gradle-svnbuildversion:1.X")
     }
 }
 
