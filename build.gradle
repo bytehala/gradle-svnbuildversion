@@ -6,9 +6,6 @@
 plugins {
     id 'groovy'
     id 'java-gradle-plugin'
-
-    // Publishing publicly
-    id 'com.gradle.plugin-publish' version '0.9.10'
 }
 
 // * * * * * * * * * * * *
@@ -47,31 +44,6 @@ gradlePlugin {
         demoPlugin { // shouldn't say "demo". i've seen greetingsPlugin and simplePlugin
             id = project.pluginId
             implementationClass = 'com.github.bytehala.SvnBuildVersionPlugin'
-        }
-    }
-}
-
-// * * * * * * * * * * * *
-// Publishing
-// * * * * * * * * * * * *
-
-// Consult the accompanied blog post for information on publishing the plugin.
-// A link can be found in the README file.
-
-// Publishing to plugins.gradle.org
-// --------------------------------
-
-// Configuration for: com.gradle.plugin-publish
-pluginBundle {
-    website = project.url
-    vcsUrl = project.scm
-    tags = ['svn', 'spring', 'properties']
-
-    plugins {
-        demoPlugin {
-            displayName = 'SVN Buildversion'
-            description = project.description
-            id          = project.pluginId
         }
     }
 }
