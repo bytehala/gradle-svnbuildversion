@@ -22,7 +22,7 @@ class SvnBuildVersionPluginTest {
     public void setup() {
         // Prepare build.gradle
         build_gradle = testProjectDir.newFile('build.gradle')
-        build_gradle << 'plugins { id "com.github.bytehala.SvnBuildVersionPlugin" }\n'
+        build_gradle << 'plugins { id "com.github.bytehala.gradle-svnbuildversion" }\n'
     }
 
     /**
@@ -49,7 +49,7 @@ class SvnBuildVersionPluginTest {
     public void generateBuildversionPropFileTest() {
         build_gradle << """
                             svnbuildversion.projectVersion = "1.00"
-                            svnbuildversion.projectRoot = "Add an svn-managed project root here"
+                            svnbuildversion.projectRoot = "Add a svn-managed project root here"
                         """
         def result = gradle('generateBuildversionProps')
         assert result.task(":generateBuildversionProps").outcome == SUCCESS

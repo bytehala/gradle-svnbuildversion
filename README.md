@@ -1,4 +1,4 @@
-# gradle-svnbuildversion 1.1
+# gradle-svnbuildversion 1.X
 
 This gradle plugin adds a `:generateBuildversionProps` task to your gradle project.
 
@@ -23,7 +23,7 @@ buildscript {
 }
 
 plugins {
-    id "com.github.bytehala.gradle-svnbuildversion" version "1.1"
+    id "com.github.bytehala.gradle-svnbuildversion" version "1.X"
 }
 
 svnbuildversion.projectVersion = 1.0 // Your project's version
@@ -34,7 +34,8 @@ svnbuildversion.projectVersion = 1.0 // Your project's version
 ## Configuring
 
 The plugin adds the following variable which you can use in your projects build.gradle
-- svnbuildversion.projectVersion
+- svnbuildversion.projectVersion - to pass your project's version into the plugin
+- svnbuildversion.outputDir - where buildversion.properties will be generated
 
 ## Build-your-own
 These steps guide you through building this plugin on your own and using the jar file in your project.
