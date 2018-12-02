@@ -34,7 +34,7 @@ class SvnBuildVersionPlugin implements Plugin<Project> {
             }
         }
 
-        println 'version: ' + projectVersion + '.' + svnRevision + '.' + built
+        // println 'version: ' + projectVersion + '.' + svnRevision + '.' + built
 
         versionProperties.setProperty("built.number", "" + built)
         versionProperties.setProperty("projectVersion.number", "" + projectVersion)
