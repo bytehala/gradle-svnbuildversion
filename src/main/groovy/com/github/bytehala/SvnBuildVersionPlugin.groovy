@@ -31,10 +31,13 @@ class SvnBuildVersionPlugin implements Plugin<Project> {
 
         def built = 1
 
-        def Properties versionProperties = new Properties()
+        Properties versionProperties = new Properties()
         if(propertyFile.canRead()) {
             versionProperties.load(new FileInputStream(propertyFile))
-            if(versionProperties['built.number'] != null) {
+
+            // If svnRevision.number is the same, increment built.number; default is already 1
+            def oldRevNum = versionProperties['svnRevision.number']
+            if(oldRevNum.equals(svnRevision) && versionProperties['built.number'] != null) {
                 built = versionProperties['built.number'].toInteger() + 1
             }
         }
