@@ -7,7 +7,7 @@ When `:generateBuildversionProps` task is run, the output file `src/main/resourc
 # buildversion.properties
 # SAMPLE CONTENTS
 projectVersion.number=0.1 # Uses the value of svnbuildversion.projectVersion
-built.number=9 # Number of times this file was generated. Can be useful when doing CI auto-builds
+built.number=9 # Numer of times this revision was built. This resets to 1 for when svnRevision.number changes
 svnRevision.number=109 # The current svn revision number. 'NaN' if project is not svn-managed
 
 ```
