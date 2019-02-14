@@ -29,6 +29,7 @@ plugins {
 
 svnbuildversion.projectVersion = 1.0 // Your project's version
 //svnbuildversion.outputDir = 'src/main/resources/config/'
+//svnbuildversion.useCommittedRevision = false
 ```
 
 2. Run `gradle generateBuildversionProps`
@@ -38,6 +39,9 @@ svnbuildversion.projectVersion = 1.0 // Your project's version
 The plugin adds the following variable which you can use in your projects build.gradle
 - svnbuildversion.projectVersion - to pass your project's version into the plugin
 - svnbuildversion.outputDir - where buildversion.properties will be generated
+- svnbuildversion.useCommittedRevision - whether to use the working revision (default) or committed revision of project directory
+
+Use the committed revision if the SVN repository hosts multiple projects and you don't want the global revision in `buildversion.properties`.
 
 ---
 
