@@ -29,7 +29,7 @@ dependencies {
 
 project.description     = 'Adds a :generateBuildversionProps task that auto-generates a buildversion.properties file'
 project.group           = 'com.github.bytehala'
-project.version         = '1.4'
+project.version         = '1.5'
 
 
 
