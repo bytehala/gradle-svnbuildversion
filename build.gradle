@@ -38,7 +38,7 @@ project.version         = '1.5'
 
 project.ext.name        = 'gradle-svnbuildversion'
 project.ext.pluginId    = 'com.github.bytehala.gradle-svnbuildversion'
-project.ext.scm         = 'scm:git@github.com:bytehala/gradle-svnbuildversion.git'
+project.ext.scm         = 'https://github.com/bytehala/gradle-svnbuildversion.git'
 project.ext.url         = 'https://github.com/bytehala/gradle-svnbuildversion'
 
 // Configuration for: java-gradle-plugin
