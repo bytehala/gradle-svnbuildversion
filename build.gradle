@@ -8,7 +8,7 @@ plugins {
     id 'java-gradle-plugin'
 
     // Publishing publicly	
-    id 'com.gradle.plugin-publish' version '0.9.10'
+    id 'com.gradle.plugin-publish' version '0.11.0'
 }
 
 // * * * * * * * * * * * *
@@ -32,7 +32,7 @@ dependencies {
 
 project.description     = 'Adds a :generateBuildversionProps task that auto-generates a buildversion.properties file'
 project.group           = 'com.github.bytehala'
-project.version         = '1.5'
+project.version         = '1.6'
 
 
 
