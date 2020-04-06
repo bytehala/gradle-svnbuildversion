@@ -1,4 +1,4 @@
-package com.praqma.demo.greeting
+package com.github.bytehala
 
 import org.gradle.testkit.runner.BuildResult
 import org.gradle.testkit.runner.GradleRunner
